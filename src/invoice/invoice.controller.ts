@@ -15,35 +15,34 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ClientsService } from './clients.service';
-import { Client } from './clients.model';
+import { InvoiceService } from './invoice.service';
 
-@Controller('clients')
-export class ClientsController {
-  constructor(private clientService: ClientsService) {}
+@Controller('invoices')
+export class InvoiceController {
+  constructor(private Invoiceervice: InvoiceService) {}
 
   @Post('')
   createClient(@Body() reqBody: any) {
-    return this.clientService.addClient(reqBody);
+    return this.Invoiceervice.create(reqBody);
   }
 
   @Get('findAll')
-  getAllClients() {
-    return this.clientService.getAllClients();
+  getAllInvoice() {
+    return this.Invoiceervice.getAllInvoices();
   }
 
   @Get(':id')
   getClient(@Param('id') userId: string) {
-    return this.clientService.getClient(userId);
+    return this.Invoiceervice.getInvoice(userId);
   }
 
   @Delete(':id')
   deleteClient(@Param('id') userId: string) {
-    return this.clientService.deleteClient(userId);
+    return this.Invoiceervice.deleteInvoice(userId);
   }
 
   @Put(':id')
   updateClient(@Param('id') userId, @Body() data) {
-    return this.clientService.updateClient(userId, data);
+    return this.Invoiceervice.updateInvoice(userId, data);
   }
 }

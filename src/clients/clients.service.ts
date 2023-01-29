@@ -9,7 +9,6 @@ import {
 } from '@nestjs/common/exceptions';
 import { ClientDocument } from './clients.model';
 import { Client } from './clients.model';
-import { ClientUpdateDTO } from './client-update.dto';
 
 @Injectable()
 export class ClientsService {
@@ -55,7 +54,7 @@ export class ClientsService {
     }
   }
 
-  async updateClient(userId, data: ClientUpdateDTO): Promise<any> {
+  async updateClient(userId, data): Promise<any> {
     try {
       const client = await this.clientModel.findByIdAndUpdate(userId, data, {
         new: true,

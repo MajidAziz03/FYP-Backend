@@ -35,14 +35,14 @@ export class UserService {
     const foundUser = await this.userModel.findOne({ email: user.email });
     if (!foundUser) {
       throw new HttpException(
-        'Username or password is incorrect',
+        'Email or Password is incorrect',
         HttpStatus.UNAUTHORIZED,
       );
     }
     const isMatch = await bcrypt.compare(user.password, foundUser.password);
     if (!isMatch) {
       throw new HttpException(
-        'Username or password is incorrect',
+        'Email or Password is incorrect',
         HttpStatus.UNAUTHORIZED,
       );
     }
@@ -50,10 +50,10 @@ export class UserService {
       name: foundUser.name,
       userId: foundUser._id,
     };
-    const { password, ...rest } = user;
+    const { password, ...result } = user;
     const accessToken = this.jwtService.sign(payload);
     return {
-      rest,
+      result,
       accessToken,
     };
   }
