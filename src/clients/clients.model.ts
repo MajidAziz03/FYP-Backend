@@ -6,7 +6,7 @@ import { IsEmail, IsNotEmpty } from 'class-validator';
 
 export type ClientDocument = HydratedDocument<Client>;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Client {
   @Prop()
   name: string;

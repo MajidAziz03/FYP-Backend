@@ -1,17 +1,15 @@
 /* eslint-disable prettier/prettier */
+import * as mongoose from 'mongoose';
 
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+export const ContainerSchema = new mongoose.Schema(
+  {
+    containerId: String,
+  },
+  {
+    timestamps: true,
+  },
+);
 
-export type ContainerDocument = HydratedDocument<Container>;
-
-@Schema()
-export class Container {
-  @Prop({ unique: true })
-  ContainerId: string;
-
-  @Prop({ default: Date.now() })
-  date: Date;
+export interface Container {
+  containerId: string;
 }
-
-export const ContainerSchema = SchemaFactory.createForClass(Container);

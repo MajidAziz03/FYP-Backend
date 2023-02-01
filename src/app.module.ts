@@ -7,6 +7,7 @@ import { UserModule } from './users/user.module';
 import { ClientsModule } from './clients/clients.module';
 import { InvoiceModule } from './invoice/invoice.module';
 import { ContainerModule } from './containers/container.module';
+import { ReportModule } from './report/report.module';
 
 // mongodb+srv://sleep:12345@nest-pd.2m32c.mongodb.net/?retryWrites=true&w=majority
 
@@ -22,7 +23,8 @@ import { ContainerModule } from './containers/container.module';
     UserModule,
     ClientsModule,
     InvoiceModule,
-     ContainerModule,
+    ContainerModule,
+    ReportModule,
   ],
   controllers: [AppController],
   providers: [AppService],
