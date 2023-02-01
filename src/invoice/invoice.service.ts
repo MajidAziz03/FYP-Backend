@@ -7,13 +7,13 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common/exceptions';
-import { Invoice, InvoiceDocument } from './invoice.model';
+import { Invoice } from './invoice.dto';
 
 @Injectable()
 export class InvoiceService {
   constructor(
     @InjectModel('invoices')
-    private readonly invoiceModel: Model<InvoiceDocument>,
+    private readonly invoiceModel: Model<Invoice>,
   ) {}
 
   async create(invoice: Invoice): Promise<Invoice> {

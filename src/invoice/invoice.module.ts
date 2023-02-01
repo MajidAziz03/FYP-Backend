@@ -2,7 +2,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { InvoiceController } from './invoice.controller';
-import { InvoiceSchema } from './invoice.model';
+import { InvoiceSchema } from './invoice.schema';
 import { InvoiceService } from './invoice.service';
 
 @Module({
